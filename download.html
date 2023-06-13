@@ -1,0 +1,119 @@
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>公益回合</title>
+    <meta name="keywords" content="公益回合">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="static/css/layui.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
+    <script src="static/js/layui.js"></script>
+    <style>
+        .jumpbox {
+            display: block;
+        }
+
+        .beian {
+            display: none;
+        }
+
+        .bgbgbg {
+            display: none;
+        }
+
+        .layui-btn-container>a {
+            display: block;
+            width: 100%;
+        }
+
+        .bj {
+            position: fixed;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="bj" src="static/picture/downbg.jpg" alt="" srcset="">
+    <div style="margin:30px auto;text-align: center;font-size: 1.2rem;color: #ea3534;width: 90vw;font-weight: bolder;">
+        先注册账号，再下载游戏，先注册，再下载
+    </div>
+    <div style="margin:30px auto;text-align: center;font-size: 3rem;color: #303133;width: 90vw;font-weight: bolder;">
+        公益回合
+    </div>
+    <div class="layui-btn-container" style="width: 90vw;margin: 30px auto;">
+        <a href="http://43.241.18.67:90/vip4/mobile/sdk/register.html" target="_blank"> <button
+                class="layui-btn layui-btn-danger layui-btn-radius layui-btn-fluid"><i
+                    class="layui-icon layui-icon-find-fill "></i>点击注册账号 </button> </a>
+        <a href="https://okff4.xyz/gywd" target="_blank" data-agl-cvt="6">
+            <button class="layui-btn layui-btn-danger layui-btn-radius layui-btn-fluid"> <i
+                    class="layui-icon layui-icon-find-fill"></i>游戏下载地址</button>
+        </a>
+        <a href="https://vipff4.xyz/gywd" target="_blank" data-agl-cvt="6"> <button
+                class="layui-btn layui-btn-danger layui-btn-radius layui-btn-fluid"><i
+                    class="layui-icon layui-icon-find-fill"></i>备用下载地址 </button></a>
+        <a href="https://work.weixin.qq.com/kfid/kfc57e61230c3205eeb" target="_blank" data-agl-cvt="6"> <button
+                class="layui-btn layui-btn-danger layui-btn-radius layui-btn-fluid"><i
+                    class="layui-icon layui-icon-find-fill"></i>点击咨询微信客服(直接满级)</button></a>
+        <a
+            href="/">
+            <button class="layui-btn layui-btn-danger layui-btn-radius layui-btn-fluid"><i
+                    class="layui-icon layui-icon-prev"></i> 返回上一页</button></a>
+    </div>
+    <div class="beian" id="beian" align="center">
+        <p style="background-color: #f1f1f1;padding: 10px;color: #303133;">请输入正确验证码，并确认</p>
+        <div style="display: flex;align-items: center;padding: 20px 5px;">
+            <div>
+                验证码：<input name="codevalue" style="width: 60%;height: 30px;" type="text">
+            </div>
+
+            <img id="code" src="handle.php?action=getcode" alt="" srcset="" height="30px" width="80px">
+            <button id="getcode" class="layui-btn layui-btn-xs" style="width: 50px;display: inline;">换一张</button>
+
+
+        </div>
+        <button id="suc" class="layui-btn">确认</button>
+        <div style="height: 20px;"></div>
+    </div>
+    <div class="bgbgbg" id="bgbgbg"></div>
+</body>
+<script>
+    // 关闭弹窗
+    // 关闭弹窗
+    // 关闭弹窗
+    // 关闭弹窗
+    // 关闭弹窗
+    //$('.beian').css('display', 'block')
+    //$('.bgbgbg').css('display', 'block')
+    // 关闭弹窗
+    // 关闭弹窗
+    // 关闭弹窗
+    // 关闭弹窗
+    // 关闭弹窗
+    layui.use(['layer'], function () {
+        layer = layui.layer;
+        $ = layui.jquery;
+        $('#getcode').on('click', function () {
+            $('#code').attr('src', 'handle.php?action=getcode&t=' + Date.parse);
+        })
+        $('#suc').on('click', function () {
+            var code = $('input[name="codevalue"]').val();
+            if (code == '') {
+                return layer.alert('请输入验证码');
+            }
+            $.get('handle.php?action=checkcode', { code: code }, function (res) {
+                if (res == 0) {
+                    return layer.alert('验证码错误');
+                } else {
+                    $('.beian').css('display', 'none')
+                    $('.bgbgbg').css('display', 'none')
+                }
+            }, 'json')
+        })
+    })
+</script>
