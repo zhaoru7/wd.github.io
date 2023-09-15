@@ -1,279 +1,1001 @@
+
+<!DOCTYPE html>
 <html lang="zh-cn">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-	<title>公益回合</title>
-	<meta name="keywords" content="公益回合">
-	<meta name="description" content="">
-	<link rel="stylesheet" href="static/css/layui.css">
-	<link rel="stylesheet" href="static/css/style.css">
-	<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript">
-		window._agl = window._agl || [];
-		(function () {
-			_agl.push(
-				['production', '_f7L2XwGXjyszb4d1e2oxPybgD']
-			);
-			(function () {
-				var agl = document.createElement('script');
-				agl.type = 'text/javascript';
-				agl.async = true;
-				agl.src = 'https://fxgate.baidu.com/angelia/fcagl.js?production=_f7L2XwGXjyszb4d1e2oxPybgD';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(agl, s);
-			})();
-		})();
-	</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>公益回合-179满级版本-</title>
+<script type="text/javascript" src="static/js/jquery-1.8.3.min.js"></script> 
+<style type="text/css">	    
+body,p,div,input,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,form {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	vertical-align: middle;
+}
+body{
+	background-color: #eee;
+}
+img{
+	vertical-align: middle;
+    display: block;
+    max-width: 100%;
+	margin:0 auto;
+	pointer-events: none;
+}
+.section{
+	width: 100%;
+	margin: 0 auto;
+	max-width: 750px;
+}
+#wraper{
+	width: 100%;
+	max-width: 750px;
+	margin: 0 auto;
+	position: relative;
+}
+.sectionvideo{
+	max-width: 720px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+}
+.video{
+	object-fit: fill;
+}
+.copyright{
+	width: 100%;
+    padding: .56rem 0 0;
+    font-size: 13px;
+	color: #7368a8;
+	margin:0 auto;
+	text-align:center;
+}
+.copyright a{
+	color: #7368a8;
+	text-decoration: none;
+}
+#sliders{
+	padding:3%;
+	overflow:hidden;
+}
+/****** PC端二维码 *******/
+#qrcode{
+	width: 160px;
+	height: 200px;
+	position: absolute;
+	right: -200px;
+	top: 100px;
+	background: #ffffff;
+	display: none;
+}
+.q-prompt{
+	margin: 0 24px;
+    font-size: 12px;
+    color: #999999;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    bottom: 18px;
+    position: absolute;
+}
+.q-qrcode{
+	margin: 20px 20px;
+}
+/****** 动态 *******/
+#banner{
+	width:100%;
+	position:fixed;
+	z-index:100;
+	top:0;
+}
+#banner_bottom{
+	width:100%;
+	position:fixed;
+	z-index:100;
+	bottom:0;
+}
+#bannerbg{
+	width:100%;
+}
+#bannerbg_bottom{
+	width:100%;
+}
+.layer-tips {
+    display: none;
+    position: fixed;
+    z-index: 999;
+	background:rgba(0,0,0,.8);
+	top:0;
+	left:0;
+}
+.down-btn {
+	top:0;
+	overflow:hidden;
+	background:#ED4521;
+    color: #fff;
+    height: 42px;
+    opacity: 0.7;
+    position: fixed;
+	line-height:42px;
+	left:25%;
+	display:block;
+    z-index: 1000;
+	width:50%;
+	margin:0 auto;
+	border-radius: 40px;
+	text-align:center;
+	font-size:16px;
+	text-decoration:none;
+}
+.down-btn_bottom {
+	bottom:20px;
+	overflow:hidden;
+	background:#ED4521;
+    color: #fff;
+    height: 42px;
+    opacity: 0.7;
+    position: fixed;
+	line-height:42px;
+	left:25%;
+	display:block;
+    z-index: 1000;
+	width:50%;
+	margin:0 auto;
+	border-radius: 40px;
+	text-align:center;
+	font-size:16px;
+	text-decoration:none;
+}
+#loading img {
+	width: 90%;
+	max-width: 750px;
+}
+			
+#load {
+	left: 50%;
+	top: 0;
+	margin-left: -50%;
+	position: fixed;
+	background-color: #000;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	z-index: 500;
+	display: none;
+}
+
+.close {
+	position: absolute;
+	right: 5%;
+	top: 10%;
+}
+
+.close img {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+#loading {
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 10%;
+	bottom: 0;
+	width: 100%;
+	/*height: 80%;*/
+	max-height: 80%;
+	/*background: white;*/
+	text-align: center;
+	z-index: 1000;
+	max-width: 750px;
+}
+#gift {
+	left: 50%;
+	top: 0;
+	margin-left: -50%;
+	position: fixed;
+	background-color: #000;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	z-index: 500;
+	display: none;
+}
+
+#gift-wide {
+	position: relative;
+	/*margin: auto;
+	left: 0;
+	right: 0;*/
+	/*top: 50%;*/
+	width: 100%;
+	/*height: 80%;*/
+	/*max-height: 80%;*/
+	/*background: white;*/
+	/*margin-top: -310px;*/
+	/*margin-top: -148px;*/
+	/*text-align: center;*/
+	z-index: 1000;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	max-width:620px;
+	max-height: 620px;
+}
+.gift-code-pic{
+	margin: auto;
+	position:absolute;
+	top:76%;
+	left:0;
+	right: 0;
+	/*top: 50%;*/
+	/*left: 50%;*/
+	/*-moz-transform: translate(-50%, -50%);*/
+	/*-ms-transform: translate(-50%, -50%);*/
+	/*-webkit-transform: translate(-50%, -50%);*/
+	/*transform: translate(-50%, -50%);*/
+	z-index: 1500;
+	max-width: 540px;
+	max-height: 70px;
+}
+.gift-code{
+	margin: auto;
+	position:absolute;
+	left:0;
+	right: 0;
+	top: 22%;
+	z-index: 2000;
+	/*font-size: 1.05em;*/
+	/*color: white;*/
+	color: red;
+	/*font-weight: 900;*/
+}
+.gift-code strong {
+	vertical-align: middle;
+	display: block;
+	max-width: 100%;
+	margin:0 auto;
+	text-align: center;
+
+}
+.gift-copy {
+	margin: auto;
+	position:absolute;
+	top:85%;
+	left:0;
+	right: 0;
+	z-index: 2000;
+	max-width: 360px;
+	max-height: 80px;
+}
+#gifttips {
+	left: 50%;
+	top: 0;
+	margin-left: -50%;
+	position: fixed;
+	background-color: #000;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	z-index: 500;
+	display: none;
+}
+.gift-inside-tips {
+	/*left: 50%;*/
+	/*top: 0;*/
+	/*margin-left: -50%;*/
+	position: relative;
+	background: rgba(0,0,0,0.5);
+	background: white;
+	width: 80%;
+	height: 25%;
+	/*width: 500px;*/
+	/*height: 200px;*/
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	/*border: 1px solid #000000;*/
+	border-radius: 8px;
+	/*box-shadow: 5px 5px 20px #ccc;*/
+	/*display: none;*/
+	/*margin: auto;*/
+	z-index: 999;
+
+}
+#tips-word {
+	position: absolute;
+	top: 30%;
+	margin: auto;
+	left: 0;
+	right: 0;
+}
+#tips-word strong{
+	vertical-align: middle;
+	display: block;
+	max-width: 100%;
+	margin:0 auto;
+	text-align: center;
+}
+
+.style-two { /*透明渐变水平线*/
+	width: 100%;
+	margin: 0 auto;
+	border: 0;
+	height: 1px;
+	position: absolute;
+	top: 67%;
+	/*border:none;*/
+	/*border-top:1px solid #;*/
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+}
+.close-copy-code {
+	margin: auto;
+	left: 0;
+	right: 0;
+	position: absolute;
+	top: 77%;
+}
+.close-copy-code strong{
+	vertical-align: middle;
+	display: block;
+	max-width: 100%;
+	margin:0 auto;
+	text-align: center;
+}
+.bannerClickArea {
+width: 26%;
+    height: 74%;
+    position: absolute;
+    top: 17%;
+    right: -0.5%;
+}
+.imgClickArea{
+    position: absolute;
+    height: 46%;
+    width: 26%;
+    left: 7%;
+    top: 24%;
+}
+.imgClickArea1{
+position: absolute;
+    height: 46%;
+    width: 27%;
+    left: 36%;
+    top: 24%;
+}
+.imgClickArea2{
+position: absolute;
+    height: 46%;
+    width: 25%;
+    left: 67%;
+    top: 24%;
+}
+.bannerClickArea5 {
+    width: 26%;
+    height: 74%;
+    position: absolute;
+    top: 17%;
+    right: 74.5%;
+}
+</style>
+<script type="text/javascript">
+    window._agl = window._agl || [];
+    (function () {
+        _agl.push(
+            ['production', '_f7L2XwGXjyszb4d1e2oxPybgD']
+        );
+        (function () {
+            var agl = document.createElement('script');
+            agl.type = 'text/javascript';
+            agl.async = true;
+            agl.src = 'https://fxgate.baidu.com/angelia/fcagl.js?production=_f7L2XwGXjyszb4d1e2oxPybgD';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(agl, s);
+        })();
+    })();
+</script>
+
 </head>
-
 <body>
-	<div id="wraper">
-		<div id="bannerbg"></div>
-		<div class="section" id="banner">
-			<img src="static/picture/1.gif">
-			<div class="bannerClickArea" onclick="xiazai()"></div>
+
+<div id="wraper">
+	<!-- 填充fixed定位的banner顶部空白 -->
+		 	<div id="bannerbg"></div>
+ 	    <div class="section" id="banner">
+	        	<img src="static/picture/4.jpg">
+                <div class="bannerClickArea" data-agl-cvt="6" onclick="download()"></div>        
+	        	<div class="bannerClickArea5" onclick="fuli()"></div>        
+
+        </div>
+				<div class="section">
+								  <img src="static/picture/1.jpg">
+				  			</div>
+        			<div class="section">
+								  <div style="position: relative;">
+				  	<img src="static/picture/5.jpg">
+                    <div class="imgClickArea" onclick="zhuce()"></div>               
+                    <div class="imgClickArea1" onclick="chongzhi()"></div>              
+				  	<div class="imgClickArea2" data-agl-cvt="6" onclick="download()"></div>				 
+
+                     </div>
+				  			</div>
+        		<!-- 	<div 
+									class="section"
+				 
+			>
+								  <img src="static/picture/3.gif"/>
+				  			</div> -->
+        			<div class="section">
+								  <img src="static/picture/3.gif">
+				  			</div>
+
+                    <div class="section">
+                                      <div style="position: relative;">
+                                      <img src="static/picture/5.jpg">
+                                            <div class="imgClickArea" onclick="zhuce()"></div>               
+                    <div class="imgClickArea1" onclick="chongzhi()"></div>              
+                    <div class="imgClickArea2" data-agl-cvt="6" onclick="download()"></div>     
+
+
+
+                                      </div>
+                            </div>
+
+
+        			<div class="section">
+								  <img src="static/picture/2.jpg">
+				  			</div>
+        			<div class="section">
+								  <div style="position: relative;">
+				      <img src="static/picture/5.jpg">
+				                                            <div class="imgClickArea" onclick="zhuce()"></div>               
+                    <div class="imgClickArea1" onclick="chongzhi()"></div>              
+                    <div class="imgClickArea2" data-agl-cvt="6" onclick="download()"></div>     	  
+
+
+
+                      </div>
+				  			</div>
+        	
+	<!--  -->
+	
+		<div class="copyright">
+		<p><span>开发者：公益回合 </span></p>
+		<p><span>更新时间：2023-05-04 | </span><span>版本：9.5.5 | </span><a href="privacy_agreement.html" target="_blank">隐私协议</a> | <a href="directions.html" target="_blank">用户权限</a>		</p>
+	</div>
+		
+
+	
+	
+	<!-- 填充fixed定位的banner底部空白 -->
+	<!--  -->
+
+</div>
+<div class="layer-tips" id="wechattips"><img src="http://ald.bdcq88.com/static/picture/android_wx_download_tips.png"></div>
+<div class="gift-tips" id="gifttips">
+	<div class="gift-inside-tips">
+		<div id="tips-word"><strong>兑换码复制成功！！</strong></div>
+		<hr class="style-two">
+		<div class="close-copy-code" onclick="closeCopyCode()">
+			<strong>确定</strong>
 		</div>
-		<div class="section" style="padding-top:13%;">
-			<div class="section">
-				<img src="static/picture/5.jpg">
-			</div>
-			<div class="section">
-				<img src="static/picture/7.gif">
-			</div>
-			<div style="position: relative;">
-				<img src="static/picture/2.gif">
-				<div class="imgClickArea" onclick="xiazai()"></div>
-				<div class="imgClickArea1" onclick="xiazai()"></div>
-				<div class="imgClickArea2" onclick="xiazai()"></div>
-			</div>
-			<div class="section">
-				<img src="static/picture/4.jpg">
-			</div>
-			<div class="section">
-				<img src="static/picture/6.jpg">
-			</div>
-			<div style="position: relative;">
-				<img src="static/picture/2.gif">
-				<div class="imgClickArea" onclick="xiazai()"></div>
-				<div class="imgClickArea1" onclick="xiazai()"></div>
-				<div class="imgClickArea2" onclick="xiazai()"></div>
-			</div>
+	</div>
 
-			<!--  -->
-			<div class="copyright">
-				<p>
-					微信客服：<span>kefu2265</span>&nbsp;&nbsp;
-					微信客服：<span>kefu2265</span>
-				</p>
+</div>
 
 
 
-				<p><span> 应用名称：公益回合</span> 更新时间：<span class="gxsj"></span> | 版本：<span class="bb">V1.0</span>
-					<br>
+<script type="text/javascript">
 
-					<a href="privacy_agreement.html" target="_blank"> 隐私协议 | </a> <a href="directions.html"
-						target="_blank"> 用户权限 </a> |
-				</p>
 
-				<br>
-			</div>
-		</div>
-		<div class="layer-tips" id="wechattips"><img src=""></div>
-		<div class="mip-sjh-wechat-wrap-float-one new-icon-btn sjh-wechat-theme-4b534c47-fcd5-49d8-8557-166162850443"
-			style="transform: scale(1.08); overflow: hidden; transform-origin: right top; border-radius: 100px;"><span
-				class="mip-sjh-wechat-wrap-btn-icon"></span>
-			<div class="mip-sjh-wechat-wrap-float-one-icon"
-				style="background-color: rgb(26, 173, 23); color: rgb(255, 255, 255); border-radius: 100px;"><i
-					class="icon iconfont iconweixinicon "></i></div>
-		</div>
-		<style>
-			.beian {
-				position: fixed;
-				width: 700px;
-				left: 50%;
-				top: 50%;
-				margin-top: -120px;
-				margin-left: -350px;
-				background: #fff;
-				z-index: 999;
-				font-size: 14px;
-				line-height: 20px;
-				display: none;
+
+var apk_url = '';//advter apk url
+var ios_url = '充值.html';//
+var counturl = '充值.html';//pv url
+
+function $_GET(name, forward){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+
+    if (r!=null) return r[2]; return forward;
+}
+
+function getCookie(name){
+	var search = name+"=";
+	var returnvalue = "";
+	if(document.cookie.length>0){
+		offset = document.cookie.indexOf(search);
+		if(offset != -1){
+			offset += search.length;
+			end = document.cookie.indexOf(";", offset);
+			if(end == -1){
+				end=document.cookie.length;
 			}
+			returnvalue = unescape(document.cookie.substring(offset, end));
+		}
+	}
+	return returnvalue;
+}
 
-			.bgbgbg {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 998;
-				background: rgba(0, 0, 0, 0.7);
-				display: none;
+function setCookie(name,value,cookie_time,domain){
+	var then=new Date();
+	then.setTime(then.getTime()+cookie_time*1000);
+	document.cookie = name+'='+value+';expires='+then.toGMTString()+';path=/'+((domain) ? ';domain='+domain : '');
+}
+
+function get_android_version() {
+    var ua = navigator.userAgent.toLowerCase();
+    var version = null;
+    if (ua.indexOf("android") > 0) {
+        var reg = /android [\d._]+/gi;
+        var v_info = ua.match(reg);
+        version = (v_info + "").replace(/[^0-9|_.]/ig, "").replace(/_/ig, "."); //得到版本号4.2.2
+        version = parseInt(version.split('.')[0]);// 得到版本号第一位
+    }
+
+    return version;
+}
+
+function loadScript(src,callback){
+	if(!src) return;
+	// if(src.indexOf('http')==-1) return;
+	var head= document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.type= 'text/javascript';
+	script.src = src;
+	if (script.addEventListener) {
+        script.addEventListener('load', function () {
+        	if (callback) {
+        		callback();
+        	}
+        }, false);
+    } else if (script.attachEvent) {
+        script.attachEvent('onreadystatechange', function () {
+            var target = window.event.srcElement;
+            if (target.readyState == 'loaded') {
+                if (callback) {
+	        		callback();
+	        	}
+            }
+        });
+    }
+	head.appendChild(script);
+}
+
+function isMobile() {
+	var ua = navigator.userAgent.toLowerCase();
+	var res = false;
+	if(ua.indexOf('android') != -1){
+		res = 'android';
+	}else if(ua.indexOf('iphone') != -1){
+		res = 'iphone';
+	}else if(ua.indexOf('ipad') != -1){
+		res = 'ipad';
+	}
+	return res;
+}
+
+function GetQueryString(name)
+{
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+	if(r!=null)return  unescape(r[2]); return null;
+}
+
+function download(){
+window.open('https://vip.123pan.cn/1812461904/WD/%E5%85%AC%E7%9B%8A%E9%97%AE%E9%81%93.apk');
+}
+function zhuce(){
+    window.open('https://dkc.scove.cn/cJdPLe');
+}
+function fuli(){
+    window.open('http://43.241.18.67:90/vip4/mobile/sdk/register.html');
+}
+function chongzhi(){
+    window.open('http://43.241.18.67:90/vip4/mobile/sdk/register.html');
+}
+
+
+function download1(url){
+	try{
+		clearTimeout(interval);
+	}catch(e){}
+	
+	if(isweixin && !isios){
+		var _tipobj = document.getElementById("wechattips");
+		_tipobj.style.display = 'block';
+		return true;
+	}
+	
+	//拼上监测参数
+	adurl = Array();
+	var idfa=GetQueryString("idfa");
+	if(idfa !=null && idfa.toString().length>=1)
+	{
+	   adurl.push("idfa="+idfa);
+	}
+	var imei=GetQueryString("imei");
+	if(imei !=null && imei.toString().length>=1)
+	{
+	   adurl.push("imei="+imei);
+	}
+	var callback=GetQueryString("callback");
+	if(callback !=null && callback.toString().length>=1)
+	{
+	   adurl.push("callback="+callback);
+	}
+	var sub=GetQueryString("sub");
+	if(sub !=null && sub.toString().length>=1)
+	{
+	   adurl.push("sub="+sub);
+	}
+
+	if (adurl.length >= 1) {
+		adurl = adurl.join('&');
+		landpageUrl = '&'+adurl;
+		adurl = '?'+adurl;
+	}else{
+		adurl='';
+		landpageUrl='';
+	}
+
+	if(!url){
+		//IOS的脸颊并且是IOS的设备跳转IOS下载链接
+		if(isios){
+			url = ios_url+adurl;			
+		}else{
+			// _v = $_GET('ver');
+			// _vios = $_GET('iosver');
+			// if(isios && _vios !="" && _vios){
+			// 	_v = _vios;
+			// }else if(_vios !="" && _vios && (_v=="" || !_v)){
+			// 	_v = _vios;
+			// }
+			
+			// if(_v){
+			// 	url = _packdomain + _v +'.apk';
+			// }else if(apk_url != "" && apk_url){
+				url = apk_url+adurl;
+			// }else{
+			// 	url = ios_url;
+			// }
+		}
+	}
+
+	if(isios) {
+	    var dev_type = 'ios';
+	} else {
+	    var dev_type = 'android';
+	}
+
+
+	loadScript(jimiLandingPageUrl+'?step=2&campaign_id='+jimiTrueCampaign+landpageUrl);
+
+	loadScript(counturl);
+    if (url != '') {
+		window.location.href = url;
+    }
+}
+
+var interval = 0;
+var ua = navigator.userAgent.toLowerCase();
+var isweixin = ua.indexOf('micromessenger') != -1 ? true : false;
+var isios = /ipad|ipod|iphone|mac/.test(ua);
+
+//落地页统计,需绑定campaign
+var jimiLandingPageUrl=' ';
+var jimiLandingGiftUrl=' ';
+var jimiDefaultCampaignId='ly5d17c5';
+var jimiIosCampaignId='ly5d17c5';
+var jimiAndroidCampaignId='';
+var jimiTrueCampaign=jimiDefaultCampaignId;
+//如果是IOS
+if(isios && jimiIosCampaignId!=''){
+	jimiTrueCampaign=jimiIosCampaignId;
+}
+//如果是非IOS
+if(!isios && jimiAndroidCampaignId!=''){
+	jimiTrueCampaign=jimiAndroidCampaignId;
+}
+
+var gift = '0';
+var gift_type = '0';
+var utils = {
+    //字体自适应
+    adaptive: function (num, width) {
+        var screenWid = document.documentElement.clientWidth;
+        var fixWid = 370;
+        screenWid = screenWid > 640 ? 640 : screenWid;
+        var htmlFontSize = (screenWid / fixWid) * 15;
+        document.documentElement.style.fontSize = htmlFontSize + 'px';
+    },
+};
+utils.adaptive();
+if(gift==1) {
+    $('body').append('<script src="static/js/clipboard.min.js" ><\/script>');
+    var gift_code = getCookie('code_gift');
+    var gift_code_number = '';
+    if (gift_code) {
+        gift_code_number = gift_code;
+        $('.gift-code-number').html(gift_code_number);
+        console.log(gift_code_number);
+    } else {
+        $.ajax({
+            url:jimiLandingGiftUrl+'?gift_type='+gift_type,
+            type:'GET',
+            dataType:'jsonp',
+            success:function(data) {
+//                var result = JSON.stringify(data);
+                gift_code_number = data;
+                $('.gift-code-number').html(gift_code_number);
+                console.log(data);
+//                setCookie('code_gift',data,1*24*60*60);
+                setCookie('code_gift',$('.gift-code-number').text(),1*24*60*60);
+            }
+        });
+    }
+    $('#gift').css('display','block');
+//    $('.gift-code-number').html(gift_code_number);
+    function closeGift() {
+        $('#gift').css('display','none');
+    }
+//    var img = new Image();
+//    img.src=$('#gift-path').attr('src');
+//    console.log(img.width);
+//    console.log(img.height);
+//    var picw = img.width;
+//    var pich = img.height;
+//    var x1 = parseInt(picw*0.1820);
+//    var y1 = parseInt(pich*0.2955);
+//    var x2 = parseInt(picw*0.3280);
+//    var y2 = parseInt(pich*0.5645);
+//    $("#CribMap").attr("coords",'"'+x1+','+y1+','+x2+','+y2+'"');
+    var img = new Image();
+    img.src=$('#gift-path').attr('src');
+    img.onload=function() {
+//        console.log(img.width);
+//        img.width;
+//        img.height;
+        var picw = img.width;
+        var pich = img.height;
+        var gift_wide_width = $('#gift-wide').width();
+        console.log(gift_wide_width);
+        if (gift_wide_width >= 620) {
+            var x1 = parseInt(picw*0.6980);
+            var y1 = parseInt(pich*0.0505);
+            var x2 = parseInt(picw*0.9880);
+            var y2 = parseInt(pich*0.2545);
+        } else {
+            var x1 = 240;
+            var y1 = 20;
+            var x2 = 480;
+//            var y2 = 150;
+            var y2 = 80;
+        }
+        $(".test-area").attr("coords",'"'+x1+','+y1+','+x2+','+y2+'"');
+    }
+    console.log(img.src);
+    console.log(img.width);
+    console.log(img.height);
+    function copyGift() {
+        var copynrText=$("#copynr").text();
+        var clipboard = new ClipboardJS('.gift-copy-pic');
+        clipboard.on('success',function (element) {
+            console.info("复制成功，复制内容： " + element.text);
+            $('.gift-tips').css('display','block');
+            clipboard.destroy();
+        });
+        clipboard.on('error', function(element) {
+            //执行失败后需要做的事...
+            clipboard.destroy();
+        });
+    }
+    function closeCopyCode() {
+        var pic = ' ';
+        $('.gift-copy-pic').attr('src',pic);
+        $('#gifttips').css('display','none');
+        $('.gift-copy-pic').removeAttr('onclick');
+        $('.gift-copy-pic').click(function() {
+            download();
+        });
+    }
+}
+
+//拼上监测参数
+adurl = Array();
+var idfa=GetQueryString("idfa");
+if(idfa !=null && idfa.toString().length>=1)
+{
+   adurl.push("idfa="+idfa);
+}
+var imei=GetQueryString("imei");
+if(imei !=null && imei.toString().length>=1)
+{
+   adurl.push("imei="+imei);
+}
+var callback=GetQueryString("callback");
+if(callback !=null && callback.toString().length>=1)
+{
+   adurl.push("callback="+callback);
+}
+var sub=GetQueryString("sub");
+if(sub !=null && sub.toString().length>=1)
+{
+   adurl.push("sub="+sub);
+}
+
+if (adurl.length >= 1) {
+	adurl = adurl.join('&');
+	landpageUrl = '&'+adurl;
+	adurl = '?'+adurl;
+}else{
+	adurl='';
+	landpageUrl='';
+}
+
+//访问统计
+if(jimiTrueCampaign && jimiTrueCampaign!=''){
+    loadScript(jimiLandingPageUrl+'?step=1&campaign_id='+jimiTrueCampaign+landpageUrl);
+}
+
+var ver = '';
+var _v = null, _vios = null;
+var _packdomain = '2018/';
+//监听浏览器返回按钮
+var backurl = '';
+$(function(){
+	if (typeof (history.pushState) === 'function') {
+		if(backurl != "" && backurl != undefined && backurl != null){
+			pushHistory();
+			// 判断安卓版本号
+			if(get_android_version() && get_android_version() < 5){
+				return false;
 			}
+			window.addEventListener("popstate", function(e) {location.href = backurl;}, false);
+		}
+	}
+});
 
-			.beian dl {
-				overflow: hidden;
-				padding: 40px 30px 10px 20px
-			}
+function pushHistory() {
+	// setCookie('jm_pop','123',3);
+	var state = {
+		title: "title",
+		url: "#"
+	};
+	
+	window.history.pushState(state, "title", "#");
+}
 
-			.beian span {
-				position: absolute;
-				right: 10px;
-				top: 10px;
-				font-size: 40px;
-				cursor: pointer;
-			}
+function closed() {
+	$("#load").hide(0);
+}
 
-			.beian .bk {
-				float: right;
-				border: 2px
-			}
+window.onload=function(){
+			var bannerHeight =  document.getElementById("banner").clientHeight;
+		$("#bannerbg").height(bannerHeight);
+	
+	var is_show = '1';
+	if (isMobile() === false && is_show == 1) {;
+		loadScript("static/js/jquery-1.8.3.min.js",function(){
+			loadScript("static/js/jquery.qrcode.min.js",function(){
+				var box=document.getElementById('qrcode');
+			    window.onscroll=function(){
+			        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+			        box.style.top=(scrollTop+100)+'px';
+			    }
+				$('#qrcode').show();
+				var link = window.location.href;
+				$('.q-qrcode').qrcode({
+					width: 120,
+				    height: 120,
+				    text: link
+				});//生成二维码
+			});
+		});
+	}
 
-			.beian .ck {
-				float: left;
-				border: 2px
-			}
+	var effect = '0';
+    var effect_time = '0';
 
-			button {
-				width: 100px;
-				height: 40px;
-			}
+    if(effect == 1){
+    $('#load').delay(effect_time*1000).show(0);
+    }
+    //关闭
+	// $("#closed"). (function() {
+	// 	$("#load").hide(0);
+	// });
 
-			@media screen and (max-width:768px) {
-				.beian {
-					width: 96%;
-					height: auto !important;
-					margin-left: -48%;
-				}
-			}
-		</style>
-		<div class="beian" id="beian" align="center">
-			<dl>
-				<h2>公益回合</h2>
+	//下载
+	// $("#download").click(function() {
+	// 	//			$("#load").hide(0);
+	// 	download();
+	// });
 
-				<h2>
-					<br>
-					官方QQ群 <a
-						href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=z3G64uJcZfYE-ylSC9VBZnQrgOvcmum5&authKey=vp5EIhLxUdmgkz0DJ3WWFGatq4Ddq4ZIKmfdMeZ49pVXvWJTJ0o5x%2Br7BDmrRMAv&noverify=0&group_code=1091964320"
-						style="color:blue"><i class="layui-icon layui-icon-login-qq"></i>点击进群</a>
-				</h2>
-				<br>
-				<br>
-				<h3>务必先注册账号，然后再下载游戏。</h3>
-				<dd style="color:blue">【先注册账号，再下载游戏】</dd>
-				<dd style="color:blue">【先注册账号，再下载游戏】</dd>
-				<br>
-				<div class="bk"><button onclick="xiazai()">
-						<h2>注册</h2>
-					</button></div>
-			</dl>
-			<span style="">×</span>
-		</div>
-		<div class="bgbgbg" id="bgbgbg"></div>
-		<script>
-			// 关闭弹窗注释掉此段代码
-			// 关闭弹窗注释掉此段代码
-			// 关闭弹窗注释掉此段代码
-			// 关闭弹窗注释掉此段代码
-			<!--$(function () {
-				setTimeout(function () {
-					$('.beian').css('display', 'block')
-					$('.bgbgbg').css('display', 'block')
-				}, 2000)
-				$('.beian span,button').click(function () {
-					$('.beian').css('display', 'none')
-					$('.bgbgbg').css('display', 'none')
-				})
-			})-->
-			// 关闭弹窗注释掉此段代码
-			// 关闭弹窗注释掉此段代码
-			// 关闭弹窗注释掉此段代码
-			// 关闭弹窗注释掉此段代码
-			// 关闭弹窗注释掉此段代码
-
-		</script>
-
-		<script src="static/js/layui.js"></script>
-		<script src="static/js/clipboard.min1.js"></script>
-		<script src="static/js/public.js"></script>
-
-
-		<script src="static/js/clipboard.min2.js"></script>
-
-
-		<script>
-			$(document).ready(function () {
-				var clipboard = new Clipboard('#find_passwordA');
-				clipboard.on('success', function (e) {
-					alert("QQ群号复制成功", 1500);
-					window.location.href = 'weixin://';
-					e.clearSelection();
-					console.log(e.clearSelection);
-				});
-			});    
-		</script>
+	
+	_v = $_GET('ver');
+	_vios = $_GET('iosver');
+	if(isios && _vios !="" && _vios){
+		_v = _vios;
+	}else if(_vios !="" && _vios && (_v=="" || !_v)){
+		_v = _vios;
+	}
+	
+	if(_v){
+		if (counturl != '') {
+			loadScript(counturl);
+		}
+	}else{
+		if (counturl != '') {
+			loadScript(counturl);
+		}
+	}
+	
+	if(isweixin && !isios){
+		//微信下载提示
+		document.getElementById("wechattips").addEventListener('touchstart',function(e){
+			this.style.display = 'none';
+			e.preventDefault();
+		},false);
+	}
+    
+	}
 
 
+</script>
+<style>
+.beian{ position:fixed; width:700px; left:50%; top:50%; margin-top:-120px; margin-left:-350px; background:#fff; z-index:999; font-size:14px; line-height:20px}
+.bgbgbg{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:998; background:rgba(0,0,0,0.7)}
+.beian dl{ overflow:hidden; padding:40px 30px 10px 20px}
+.beian span{ position:absolute; right:10px; top:10px; font-size:40px; cursor:pointer;}
+ .beian .bk{float: right;border: 2px solid #ccc;}
+ button{width:160px;height:40px;}
+  @media screen and (max-width:768px) {
+    .beian{ width:96%; height:auto !important; margin-left:-48%;}
+}
+</style>
+<div class="beian" id="beian" align="center">
+<dl>
+<br>
+            <h3>【上线满级179级】公益回合手游公测上线！</h3>
+<br>
+            <h3>【游戏注册码：6666】</h3>
+            <dd style="color:blue">【注册福利】〓 无限元宝，无限积分，秒五神兽、直升满级/改12套/满属性首饰</dd>
+<!-- 			  <dd style="color:blue">【公益回合】〓 安卓注册账号邀请码：6666</dd>-->
+            <br>     
+<br>
+<!-- <dd style="line-height:30px" align='center'>< img id="" src="static/picture/pay.png" alt="" width="200px"/></dd> -->
+<div class="bk"><button><h2>抢先注册</h2></button></div>
+</dl>
+<span>×</span>
+</div>
+<div class="bgbgbg" id="bgbgbg"></div>
+<script>
+    $(function(){
+        $(' button').click(function(){
+window.open('http://43.241.18.67:90/vip4/mobile/sdk/register.html');
+ 
+            $('.beian').css('display','none')
+            $('.bgbgbg').css('display','none')
+        })
 
-
-		<!--<div class="toolbar">
-
-
-			<a data-clipboard-action="copy" data-clipboard-target="#target" id="find_passwordA">
-				<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=z3G64uJcZfYE-ylSC9VBZnQrgOvcmum5&authKey=vp5EIhLxUdmgkz0DJ3WWFGatq4Ddq4ZIKmfdMeZ49pVXvWJTJ0o5x%2Br7BDmrRMAv&noverify=0&group_code=1091964320">
-				<h3>加玩家QQ交流群领福利: <span id="target">1091964320</span></h3>
-				<p>点击加入QQ群或者QQ群搜索添加</p></a>
-				<i></i>
-			</a>
-
-
-		</div>-->
-
-
-
-
-
-
-
-		<style>
-			body {
-				padding-bottom: 70px;
-			}
-
-			.toolbar {
-				position: fixed;
-				left: 0;
-				bottom: 0;
-				width: 100%;
-				height: 60px;
-				background-color: #FFF;
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-				text-align: center;
-				font-size: 16px;
-				padding-top: 10px;
-			}
-
-			.toolbar h3 {
-				color: #1aad17;
-				font-size: 16px;
-			}
-
-			.toolbar h3 span {
-				color: #ff0000;
-			}
-		</style>
-		<script>
-			var _hmt = _hmt || [];
-			(function () {
-				var hm = document.createElement("script");
-				hm.src = "https://hm.baidu.com/hm.js?263fbb36b26374ef23f52c64728cea60";
-				var s = document.getElementsByTagName("script")[0];
-				s.parentNode.insertBefore(hm, s);
-			})();
-		</script>
+  $('.beian span').click(function(){
+ 
+ 
+            $('.beian').css('display','none')
+            $('.bgbgbg').css('display','none')
+        })
+    })
+</script>
 
 </body>
-
 </html>
+
